@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h2>ENCRYPTED TEXT</h2>
+    <p>(paste this into the GitHub Issue message)</p>
+    <div class="encrypted_output" id="a">
+        <div class="copy_to_clipboard" onclick="copyDivToClipboard()">
+            <img src="{{url_for('static', filename='img/duplicate.png')}}" />
+        </div>
+        <p>{{ output[0] }} <br><br> {{ output[1] }}</p>
+    </div>
+
+    <script>
+        function copyDivToClipboard() {
+            var range = document.createRange();
+            range.selectNode(document.getElementById("a"));
+            window.getSelection().removeAllRanges(); // clear current selection
+            window.getSelection().addRange(range); // to select text
+            document.execCommand("copy");
+            window.getSelection().removeAllRanges();// to deselect
+
+        }
+    </script>
+
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>BUG REPORTING [ISSUE]</h2>
+    <p>(Enter following details for issue and then encrypt)</p>
+    <form action="/" method="POST">
+        <p>
+            <span class="textarea">{{form.issue(size=30)}}</span>
+        </p>
+        <button class="encryption_button" type="submit" title="encrypt"><span>Encrypt</span></button>
+    </form>
+
+{% endblock %}
