@@ -3,8 +3,11 @@
 {% block content %}
 
     <h2>ENCRYPTED TEXT</h2>
-    <p>(paste this into the GitHub Issue message)</p>
+    <p class="description">(paste this into the GitHub Issue message)</p>
     <div class="encrypted_output" id="a">
+        <div class="copied">
+            <p>👾 Copied to Clipboard</p>
+        </div>
         <div class="copy_to_clipboard" onclick="copyDivToClipboard()">
             <img src="{{url_for('static', filename='img/duplicate.png')}}" />
         </div>
@@ -13,6 +16,11 @@
 
     <script>
         function copyDivToClipboard() {
+            var element = document.querySelector('.copied');
+            element.classList.add('active');
+            element.addEventListener("animationend", () => {
+                element.classList.remove('active');
+            })
             var range = document.createRange();
             range.selectNode(document.getElementById("a"));
             window.getSelection().removeAllRanges(); // clear current selection
