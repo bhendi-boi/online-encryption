@@ -5,3 +5,4 @@ dist/
 build/
 .cache/
 __pycache__
+.vercel
